@@ -8,6 +8,10 @@ This action sets the current ISO8601 time to the `time` output. Useful for setti
 
 The UTC time when this step was run.
 
+### `unixTime`
+
+The unix timestamp this step was run
+
 ## Example usage
 
 ```yaml
@@ -18,5 +22,6 @@ steps:
 - name: Use current time
   env:
     TIME: "${{ steps.current-time.outputs.time }}"
-  run: echo $TIME
+    UNIXTIME: "${{ steps.current-time.outputs.unixTime }}"
+  run: echo $TIME && echo $UNIXTIME
 ```
